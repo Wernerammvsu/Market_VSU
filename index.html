@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Games Store | Загружайте игры для ПК, моды, дополнения и не только — Epic Games</title>
+    <script src="https://kit.fontawesome.com/fc3baec284.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter',sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 20px;
+            letter-spacing: 0.2px;
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #121212;
+            margin: 0;
+        }
+
+        .head {
+            display: flex;
+            background-color: #2A2A2A;
+            color: #B8B8B8;
+            justify-content: space-between;
+        }
+        .menu-item {
+            border: 0px;
+            margin: 20px;
+            margin-bottom: 0;
+        }
+        .menu-item:hover {
+            border-bottom: 4px;
+            border-bottom-color: #0078F2;
+            border-style: solid;
+        }
+        .menu-icon {
+            
+            margin: 16px;
+        }
+        
+        .h-l {
+            display: flex;
+        }
+
+        .h-r {
+            display: flex;
+        }
+        .h-menu {
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .h-menu:hover {
+            color: #FFFFFF;
+        }
+        .blue-button {
+            background-color: #0078F2;
+            color: #FFFFFF;
+            padding: 20px;
+            min-height: max-content;
+        }
+        .content{
+            background-color: #121212;
+            width: 80%;
+            color: white;
+            margin: auto;
+            padding-bottom: 100px;
+        }
+
+        .content-head {
+            display: flex;
+            justify-content: space-between;
+            color: #494949;
+            margin: 20px;
+            font-weight: 600;
+        }
+
+        .ch-l, .ch-r {
+            display: flex;
+            margin: 10px;
+            align-items: center;
+        }
+
+        .main-games {
+            display: flex;
+        }
+
+        .carousel-thumbnail {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .carousel-thumbnail-item {
+            display: flex;
+            padding: 20px;
+        }
+        .carousel-thumbnail-item:hover {
+            background-color: #494949;
+            border-radius: 10px;
+        }
+        ul{
+            list-style: none;
+        }
+        
+        .account-dropdown {
+            position: relative;
+        }
+        .account-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2A2A2A;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 3px;
+            text-align: center;
+            
+        }
+        .account-dropdown-content > li {
+            margin: 7px;
+            font-size: 10px;
+        }
+        .dropdown:hover .account-dropdown-content {
+            display: block;
+        }
+        footer{
+            color:#FFFFFF;
+            background-color: #202020;
+            border-top: none;
+            font-size: 16px;
+            font-family: 'OpenSans',sans-serif;
+            
+        }
+        .f-button:hover {
+            color: #0078F2;
+        }
+        .f-left{
+            padding: 0.7em 4.5em;
+            position: relative;
+            z-index: 10;
+            margin: 0px;
+        }
+		.f-menu {
+            display: flex;
+        }
+        .f-paragraph{
+            color: #B8B8B8;
+            font-family: 'OpenSans',sans-serif;
+            font-size: .71em;
+            font-weight: 400;
+            line-height: 2em;
+            margin: 0;
+            padding-top: 0.5em;
+            text-size-adjust: 100%;
+            padding: 1.25em 70px;
+            position: relative;
+            z-index: 10;
+            width: 800px;
+        }	
+		.games-sale {
+            display: flex;
+            justify-content: space-around;
+        }	
+
+        .discount {
+            background-color: #0078F2;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .price-old {
+            text-decoration: line-through;
+        }
+        .search {
+            background-color: #202020; 
+            border-radius: 3px; 
+            height: 20px; 
+            width: 220px;
+            padding: 10px;
+            border-radius: 24px;
+            box-shadow: 0px 5px 10px 1px #202020;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <div class="h-l">
+                <img src="images/logo.PNG" height="56"/>
+                <div class="menu-item">МАГАЗИН</div>
+                <div class="menu-item">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</div>
+                <div class="menu-item">СПРАВКА</div>
+                <div class="menu-item">UNREAL ENGINE</div>
+            </div>
+            <div class="h-r">
+                <img class="menu-icon" src="images/network.PNG" height="34"/>
+                <img class="menu-icon" src="images/lk.PNG" height="30" style="margin-right: 0;"/>
+                <div class="menu-item dropdown" style="margin-left: 10px; width: 114px;">
+                    <div class="account-dropdown">Имя Фамилия</div>
+                    <nav>
+                        <ul class="account-dropdown-content">
+                            <li>УЧЕТНАЯ ЗАПИСЬ</li>
+                            <li>МОИ ДОСТИЖЕНИЯ</li>
+                            <li>АКТИВИРОВАТЬ КОД</li>
+                            <li>КУПОНЫ</li>
+                            <li>СПИСОК ЖЕЛАЕМОГО</li>
+                            <li>ВЫЙТИ</li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="blue-button">ЗАГРУЗИТЬ EPIC GAMES</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="content-head">
+            <div class="ch-l">
+                <div class="search">
+                    <i class="fa fa-solid fa-magnifying-glass" style="color: #FFFFFF"></i>
+                    <input type="search" placeholder="Искать в магазине" style="color: #FFFFFF; background: none; border: 0;" >
+                </div>
+                <div class="h-menu">Главное</div>
+                <div class="h-menu">Все игры</div>
+                <div class="h-menu">Новости</div>
+            </div>
+            <div class="ch-r">
+                <div class="h-menu">Список желаемого</div>
+                <div class="h-menu">Корзина</div>
+            </div>
+        </div>
+        <div class="main-games">
+            <div class="carousel">
+                <img id="main-game" src="images/b1.PNG" alt="Банер">
+            </div>
+            <div class="carousel-thumbnail">
+                <div class="carousel-thumbnail-item" data-game-id=1>
+                    <img src="images/sb1.PNG" alt="Assassin's Creed: Мираж">
+                    <div style="align-self: center; padding-left: 10px; width: 120px;">Assassin's Creed: Мираж</div>
+                </div>
+                <div class="carousel-thumbnail-item" data-game-id=2>
+                    <img src="images/sb2.PNG" alt="RAILGRADE">
+                    <div style="align-self: center; padding-left: 10px;">RAILGRADE</div>
+                </div>
+                <div class="carousel-thumbnail-item" data-game-id=3>
+                    <img src="images/sb3.PNG" alt="Rocket League">
+                    <div style="align-self: center; padding-left: 10px;">Rocket League</div>
+                </div>
+                <div class="carousel-thumbnail-item" data-game-id=4>
+                    <img src="images/sb4.PNG" alt="Teamfight Tactics">
+                    <div style="align-self: center; padding-left: 10px;">Teamfight Tactics</div>
+                </div>
+                <div class="carousel-thumbnail-item" data-game-id=5>
+                    <img src="images/sb5.PNG" alt="Genshin Impact">
+                    <div style="align-self: center; padding-left: 10px;">Genshin Impact</div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div style="padding-top: 40px; padding-bottom:10px; font-size:16px; padding-left: 20px;">Игры со скидками</div>
+        </div>
+        <div class="games-sale">
+            <div>
+                <img src="images/g1.PNG" alt="Timberborn">
+                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
+                <p>Timberborn</p>
+                <div>
+                    <span class="discount">-20%</span>
+                    <span class="price-old">549</span>
+                    <span>439,20 ₽</span>
+                </div>
+            </div>
+            <div>
+                <img src="images/g2.PNG" alt="Isonzo">
+                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
+                <p>Isonzo</p>
+                <div>
+                    <span class="discount">-10%</span>
+                    <span class="price-old">649</span>
+                    <span>584,10 ₽</span>
+                </div>
+            </div>
+            <div>
+                <img src="images/g3.PNG" alt="A Tale of Paper: Refolded">
+                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
+                <p>A Tale of Paper: Refolded</p>
+                <div>
+                    <span class="discount">-10%</span>
+                    <span class="price-old">449</span>
+                    <span>404,10 ₽</span>
+                </div>
+            </div>
+            <div>
+                <img src="images/g4.PNG" alt="Fuga: Melodies of Steel">
+                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
+                <p>Fuga: Melodies of Steel</p>
+                <div>
+                    <span class="discount">-30%</span>
+                    <span class="price-old">2 439</span>
+                    <span>1 707,30 ₽</span>
+                </div>
+            </div>
+            <div>
+                <img src="images/g5.PNG" alt="Restles Soul">
+                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
+                <p>Restles Soul</p>
+                <div>
+                    <span class="discount">-10%</span>
+                    <span class="price-old">349</span>
+                    <span>314,10 ₽</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <br>
+            <br>
+            <i class="fa fa-brands fa-vk" style="color:#B8B8B8; font-size: 32px; padding-left: 70px;"></i>
+            <i class="fa fa-brands fa-telegram" style="color:#B8B8B8; font-size: 32px;"></i>
+            <i class="fa fa-brands fa-twitter" style="color:#B8B8B8; font-size: 32px; padding-bottom: 20px;"></i>
+            <div class="f-left" style="padding-bottom: 0; color: #494949; font-weight: 700;">Ресурсы</div>
+            <div class="f-menu" class="f-left">
+                <div class="f-left">
+                    <div class="f-button">Поддержка авторов</div>
+                    <div class="f-button">Опубликовать на Epic Games</div>
+                    <div class="f-button">Вакансии</div>
+                    <div class="f-button">Компания</div>
+                </div>
+                <div class="f-left">
+                    <div class="f-button">Правила для неофициальных материалов</div>
+                    <div class="f-button">Исследование пользовательского опыта</div>
+                    <div class="f-button">Лицензионное соглашение с конечным пользователем магазина</div>
+                </div>
+                <div class="f-left">
+                    <div class="f-button">Сетевые службы</div>
+                    <div class="f-button">Правила сообщества</div>
+                    <div class="f-button">Epic Newsroom</div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="f-left"  style="padding-bottom: 0; color: #494949; font-weight: 700;">Создатель: Epic Games</div>
+            <div class="f-menu">
+                <div class="f-left">
+                    <div class="f-button">Battle breakers</div>
+                    <div class="f-button">Fornite</div>
+                    <div class="f-button">Infinity blade</div>
+                </div>
+                <div class="f-left">
+                    <div class="f-button">Robo Recall</div>
+                    <div class="f-button">Shadow Complex</div>
+                    <div class="f-button">Unreal Tournament</div>
+                </div>
+            </div>
+        </div>
+        <hr color="#494949" size="0.1" width="93%">
+        <p class="f-paragraph">© 2022, Epic Games, Inc. Все права сохранены. Epic, Epic Games, логотип Epic Games, Fortnite, логотип Fortnite, Unreal, Unreal Engine, логотип Unreal Engine, Unreal Tournament и логотип Unreal Tournament являются товарными знаками или зарегистрированными товарными знаками Epic Games, Inc. в США и во всём остальном мире. Все прочие марки и наименования продукции являются товарными знаками соответствующих владельцев. Финансовые операции за пределами США проводятся через Epic Games International, S.à r.l.   </p>
+        <div style="display: flex; justify-content: space-between;">
+            <div class="f-left" style="display: flex;">
+                <div class="f-button">Условия предоставления услуг</div>
+                <div class="f-button" style="padding-left: 10px;">Политика конфиденциальности</div>
+                <div class="f-button" style="padding-left: 10px;">Правила возврата магазина</div>
+            </div>
+            <div style="margin-right: 60px;">
+                <div><img src="images/icons.PNG" alt="icons"></div>
+            </div>
+        </div>
+
+    </footer>
+    <script>
+        const carouselThumbnailItems = document.getElementsByClassName('carousel-thumbnail-item');
+        for (let item of carouselThumbnailItems) {
+            item.onclick = e => {
+                gameId = e.currentTarget.getAttribute('data-game-id');
+                document.getElementById('main-game').src = `images/b${gameId}.PNG`;
+            }
+        }
+    </script>
+</body>
+</html>
