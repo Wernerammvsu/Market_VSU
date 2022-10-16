@@ -1,0 +1,16 @@
+<div class="main-games">
+  <div class="carousel cursor-active">
+    <img id="main-game" [src]="selectedGame.bannerUri" [alt]="selectedGame.name" width="1139.25px">
+    <div id="game-description">{{ selectedGame.description }}</div>
+    <button id="game-action" class="cursor-active">{{ selectedGame.price > 0 ? 'КУПИТЬ СЕЙЧАС' : 'ИГРАТЬ' }}</button>
+    <div id="rectangle" class="gradient"></div>
+  </div>
+  <div class="carousel-thumbnail cursor-active animated-hover">
+    <ng-container *ngFor="let game of topGames">
+      <div class="carousel-thumbnail-item" [attr.data-game-id]="game.id" (click)="selectedGame = game">
+        <img [src]="game.thumbnailUri" [alt]="game.name">
+        <div>{{ game.name }}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

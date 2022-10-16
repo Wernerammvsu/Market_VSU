@@ -1,0 +1,127 @@
+.content {
+    background-color: #121212;
+    width: 80%;
+    color: white;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+.content-head {
+    display: flex;
+    justify-content: space-between;
+    color: #494949;
+    margin: 20px;
+    font-weight: 600;
+}
+
+.ch-l, .ch-r {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
+.h-menu {
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.h-menu:hover {
+    color: #FFFFFF;
+}
+
+.search {
+    background-color: #202020; 
+    border-radius: 3px; 
+    height: 20px; 
+    width: 220px;
+    padding: 10px;
+    border-radius: 24px;
+    box-shadow: 0 5px 10px 1px #202020;
+}
+
+.search > i {
+    color: #FFFFFF;
+}
+
+.search > input {
+  padding-left: 10px;
+  color: #FFFFFF;
+  background: none;
+  border: 0;
+}
+
+.search > input:focus {
+  outline: none;
+}
+
+#search-history-dropdown {
+    position: absolute;
+    background-color: #202020;
+    color: #FFFFFF;
+    width: 300px;
+    margin-top: 20px;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.search-option {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.search-option > i {
+    z-index: 2;
+}
+
+.fa-xmark {
+    color: #B8B8B8;
+}
+.fa-xmark:hover {
+    color: #FFFFFF;
+}
+
+.search-result {
+    margin-top: 40px;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(5, 205.33px);
+    row-gap: 35px;
+}
+
+.title {
+    padding-top: 40px; 
+    padding-bottom: 10px; 
+    font-size: 16px; 
+    padding-left: 20px;
+}
+
+#create-form {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+}
+.form-item {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+.form-item > input, .form-item > textarea {
+    width: 300px;
+}
+#create-form > div:last-child {
+    margin: auto;
+}
+.add-button{
+    margin: auto;
+    background-color: #0078F2;
+    color: white;
+    padding: 20px 40px 20px 40px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+#create-form > .title {
+    margin: auto;
+}

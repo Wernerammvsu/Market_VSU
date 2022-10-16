@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="games.js"></script>
     <style>
         body {
             font-family: 'Inter',sans-serif;
@@ -25,22 +26,23 @@
         .head {
             display: flex;
             background-color: #2A2A2A;
-            color: #B8B8B8;
             justify-content: space-between;
         }
         .menu-item {
             border: 0px;
             margin: 20px;
             margin-bottom: 0;
+            color: #B8B8B8;
         }
         .menu-item:hover {
             border-bottom: 4px;
             border-bottom-color: #0078F2;
             border-style: solid;
+            color: #FFFFFF;
         }
         .menu-icon {
-            
             margin: 16px;
+            margin-right: 0;
         }
         
         .h-l {
@@ -53,6 +55,7 @@
         .h-menu {
             padding-left: 20px;
             font-size: 16px;
+            color: #B8B8B8;
         }
         .h-menu:hover {
             color: #FFFFFF;
@@ -84,27 +87,77 @@
             margin: 10px;
             align-items: center;
         }
-
+        #main-game{
+            border-radius: 20px;
+        }
         .main-games {
             display: flex;
         }
-
+        .thumbnail-img{
+            height: 58px;
+            border-radius: 4px;
+        }
+        .carousel {
+            position: relative;
+        }
+        #game-description {
+            position: absolute;
+            left: 5%;
+            bottom: 20%;
+            width: 315px;
+            font-size: 17px;
+            line-height: 1.5;
+            z-index: 2;
+        }
+        #game-action {
+            position: absolute;
+            left: 5%;
+            bottom: 5%;
+            border-radius: 4px;
+            width: 180px;
+            height: 50px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            z-index: 2;
+            border: 0;
+        }
+        #rectangle{
+            position: absolute;
+            background: linear-gradient(75deg, #121212, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+            width: 100%;
+            height: 99.3%;
+            border-radius: 20px;
+        }
         .carousel-thumbnail {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            margin-left: 40px;
+        }
+        .gradient {
+	        display: inline-block;
+	        line-height: 0;
+            width: 100%;
+            height: 100%;    
+            top: 0;      
+            left: 0;   
+            background: transparent;
+            opacity: 0.9;
         }
 
+             
         .carousel-thumbnail-item {
             display: flex;
             padding: 20px;
         }
+        .carousel-thumbnail-item > div {
+            align-self: center; 
+            padding-left: 10px; 
+            width: 120px;
+        }
         .carousel-thumbnail-item:hover {
             background-color: #494949;
             border-radius: 10px;
-        }
-        ul{
-            list-style: none;
         }
         
         .account-dropdown {
@@ -118,16 +171,24 @@
             z-index: 1;
             padding: 3px;
             text-align: center;
-            
+            list-style-type: none;
         }
         .account-dropdown-content > li {
             margin: 7px;
             font-size: 10px;
+            color: #B8B8B8;
+        }
+        .account-dropdown-content > li:hover {
+            color: #FFFFFF;
+        }
+        .dropdown {
+            margin-left: 10px; 
+            width: 114px;
         }
         .dropdown:hover .account-dropdown-content {
             display: block;
         }
-        footer{
+        .footer{
             color:#FFFFFF;
             background-color: #202020;
             border-top: none;
@@ -162,9 +223,35 @@
             width: 800px;
         }	
 		.games-sale {
-            display: flex;
+            margin-top: 40px;
+            display: grid;
             justify-content: space-around;
-        }	
+            grid-template-columns: auto auto auto auto auto;
+            row-gap: 40px;
+        }
+        .games-sale-item {
+            position: relative;
+        }
+        .games-sale img {
+            border-radius: 10px;
+        }
+        .games-sale .fa-trash {
+            position: absolute;
+            top: 5%;
+            left: 105%;
+            color: #494949;
+            font-size: 20px;
+            display: none;
+        }
+        .fa-trash:hover{
+            color: #FFF;
+        }
+        .title {
+            padding-top: 40px; 
+            padding-bottom:10px; 
+            font-size:16px; 
+            padding-left: 20px;
+        }
 
         .discount {
             background-color: #0078F2;
@@ -182,205 +269,506 @@
             padding: 10px;
             border-radius: 24px;
             box-shadow: 0px 5px 10px 1px #202020;
+            position: relative;
+        }
+        .search > i {
+            color: #FFFFFF
+        }
+        .search > input {
+            color: #FFFFFF; 
+            background: none; 
+            border: 0;
+        }
+        .search > input:focus {
+            outline: none;
+        }
+        
+        .game-type {
+            color:#B8B8B8; 
+            font-size: 12px; 
+            font-weight: 700;
+        }
+        .fa-brands {
+            color:#B8B8B8;
+            font-size: 32px;
+        }
+        .fa-brands:hover{
+            color: #0078F2;
+        }
+        .fa-vk {
+            padding-left: 70px;
+        }
+        .fa-twitter {
+            padding-bottom: 20px;
+        }
+        .resources {
+            padding-bottom: 0; 
+            color: #494949; 
+            font-weight: 700;
+        }
+        .rules {
+            display: flex; 
+            justify-content: space-between;
+        }
+        .rules > div {
+            display: flex;
+        }
+        .policy {
+            padding-left: 10px;
+        }
+        .footer-icons {
+            margin-right: 60px;
+        }
+        .cursor-active {
+            cursor: pointer;
+        }
+        #search-result {
+            display: grid;
+            justify-content: space-around;
+            grid-template-columns: auto auto auto auto auto;
+            row-gap: 40px;
+        }
+        #search-history-dropdown {
+            position: absolute;
+            background-color: #202020;
+            color: #FFFFFF;
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 8px;
+            z-index: 1;
+        }
+        .search-option {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+        }
+        .search-option > i {
+            z-index: 2;
+        }
+        .fa-xmark {
+            color: #B8B8B8;
+        }
+        .flex-space-between {
+            display: flex;
+            justify-content: space-between;
+        }
+        #create-form {
+            display: none;
+            align-self: center;
+            flex-direction: column;
+            width: 400px;
+            margin: auto;
+        }
+        .form-item {
+            display: flex;
+            margin: 10px;
+            justify-content: space-between;
+        }
+        .form-item > input, .form-item > textarea {
+            width: 300px;
+        }
+        #create-form > div:last-child {
+            margin: auto;
+        }
+        .add-button{
+            margin: auto;
+            background-color: #0078F2;
+            color: white;
+            padding: 20px 40px 20px 40px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        #create-form > .title {
+            margin: auto;
+        }
+        .animated-hover{
+            transition: color 0.5s ease;
+        }
+        #btn-edit{
+            color: #2A2A2A;
+            font-size: 26px;
+        }
+        #btn-edit:hover{
+            color: #FFFFFF;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="head">
-            <div class="h-l">
+            <div class="h-l cursor-active">
                 <img src="images/logo.PNG" height="56"/>
-                <div class="menu-item">МАГАЗИН</div>
-                <div class="menu-item">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</div>
-                <div class="menu-item">СПРАВКА</div>
-                <div class="menu-item">UNREAL ENGINE</div>
+                <div class="menu-item animated-hover">МАГАЗИН</div>
+                <div class="menu-item animated-hover">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</div>
+                <div class="menu-item animated-hover">СПРАВКА</div>
+                <div class="menu-item animated-hover">UNREAL ENGINE</div>
             </div>
-            <div class="h-r">
-                <img class="menu-icon" src="images/network.PNG" height="34"/>
-                <img class="menu-icon" src="images/lk.PNG" height="30" style="margin-right: 0;"/>
-                <div class="menu-item dropdown" style="margin-left: 10px; width: 114px;">
-                    <div class="account-dropdown">Имя Фамилия</div>
+            <div class="h-r cursor-active">
+                <img class="menu-icon " src="images/network.PNG" height="34"/>
+                <img class="menu-icon" src="images/lk.PNG" height="30"/>
+                <div class="menu-item dropdown">
+                    <div class="account-dropdown animated-hover">Имя Фамилия</div>
                     <nav>
-                        <ul class="account-dropdown-content">
-                            <li>УЧЕТНАЯ ЗАПИСЬ</li>
-                            <li>МОИ ДОСТИЖЕНИЯ</li>
-                            <li>АКТИВИРОВАТЬ КОД</li>
-                            <li>КУПОНЫ</li>
-                            <li>СПИСОК ЖЕЛАЕМОГО</li>
-                            <li>ВЫЙТИ</li>
+                        <ul class="account-dropdown-content cursor-active">
+                            <li class="animated-hover">УЧЕТНАЯ ЗАПИСЬ</li>
+                            <li class="animated-hover">МОИ ДОСТИЖЕНИЯ</li>
+                            <li class="animated-hover">АКТИВИРОВАТЬ КОД</li>
+                            <li class="animated-hover">КУПОНЫ</li>
+                            <li class="animated-hover">СПИСОК ЖЕЛАЕМОГО</li>
+                            <li class="animated-hover">ВЫЙТИ</li>
                         </ul>
                     </nav>
                 </div>
                 
-                <div class="blue-button">ЗАГРУЗИТЬ EPIC GAMES</div>
+                <div class="blue-button cursor-active">ЗАГРУЗИТЬ EPIC GAMES</div>
             </div>
         </div>
     </header>
 
     <div class="content">
-        <div class="content-head">
+        <div class="content-head cursor-active">
             <div class="ch-l">
                 <div class="search">
-                    <i class="fa fa-solid fa-magnifying-glass" style="color: #FFFFFF"></i>
-                    <input type="search" placeholder="Искать в магазине" style="color: #FFFFFF; background: none; border: 0;" >
+                    <i class="fa fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Искать в магазине" >
+                    <div id="search-history-dropdown" hidden></div>
                 </div>
-                <div class="h-menu">Главное</div>
-                <div class="h-menu">Все игры</div>
-                <div class="h-menu">Новости</div>
+                <div class="h-menu animated-hover">Главное</div>
+                <div class="h-menu animated-hover">Все игры</div>
+                <div class="h-menu animated-hover">Новости</div>
             </div>
-            <div class="ch-r">
-                <div class="h-menu">Список желаемого</div>
-                <div class="h-menu">Корзина</div>
+            <div class="ch-r cursor-active">
+                <div class="h-menu animated-hover">Список желаемого</div>
+                <div class="h-menu animated-hover">Корзина</div>
             </div>
         </div>
         <div class="main-games">
-            <div class="carousel">
-                <img id="main-game" src="images/b1.PNG" alt="Банер">
+            <div class="carousel cursor-active">
+                <img id="main-game" class="cursor-active" src="" alt="" width="1103.25px">
+                <div id="game-description"></div>
+                <button id="game-action" class="cursor-active"></button>
+                <div id="rectangle" class="gradient"></div>
             </div>
-            <div class="carousel-thumbnail">
-                <div class="carousel-thumbnail-item" data-game-id=1>
-                    <img src="images/sb1.PNG" alt="Assassin's Creed: Мираж">
-                    <div style="align-self: center; padding-left: 10px; width: 120px;">Assassin's Creed: Мираж</div>
+            <div class="carousel-thumbnail cursor-active animated-hover">
+                <div class="carousel-thumbnail-item" hidden>
+                    <img class="thumbnail-img" src="" alt="">
+                    <div></div>
                 </div>
-                <div class="carousel-thumbnail-item" data-game-id=2>
-                    <img src="images/sb2.PNG" alt="RAILGRADE">
-                    <div style="align-self: center; padding-left: 10px;">RAILGRADE</div>
-                </div>
-                <div class="carousel-thumbnail-item" data-game-id=3>
-                    <img src="images/sb3.PNG" alt="Rocket League">
-                    <div style="align-self: center; padding-left: 10px;">Rocket League</div>
-                </div>
-                <div class="carousel-thumbnail-item" data-game-id=4>
-                    <img src="images/sb4.PNG" alt="Teamfight Tactics">
-                    <div style="align-self: center; padding-left: 10px;">Teamfight Tactics</div>
-                </div>
-                <div class="carousel-thumbnail-item" data-game-id=5>
-                    <img src="images/sb5.PNG" alt="Genshin Impact">
-                    <div style="align-self: center; padding-left: 10px;">Genshin Impact</div>
+            </div>
+        </div>
+
+        <div id="search-title" class="title" hidden>Результаты поиска</div>
+        <div id="search-result">
+            <div class="search-result-item" hidden>
+                <img class="cursor-active" width="60px">
+                <p class="game-type"></p>
+                <p class="cursor-active"></p>
+                <div>
+                    <span class="discount"></span>
+                    <span class="price-old"></span>
+                    <span></span>
                 </div>
             </div>
         </div>
         
-        <div>
-            <div style="padding-top: 40px; padding-bottom:10px; font-size:16px; padding-left: 20px;">Игры со скидками</div>
+        <div class="flex-space-between">
+            <div class="title">Игры со скидками</div>
+            <i id="btn-edit" class="fa fa-solid fa-pen-to-square animated-hover"></i>
         </div>
         <div class="games-sale">
-            <div>
-                <img src="images/g1.PNG" alt="Timberborn">
-                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
-                <p>Timberborn</p>
+            <div class="games-sale-item" hidden>
+                <img class="cursor-active" src="" alt="" height="274px">
+                <p class="game-type"></p>
+                <p class="cursor-active"></p>
                 <div>
-                    <span class="discount">-20%</span>
-                    <span class="price-old">549</span>
-                    <span>439,20 ₽</span>
+                    <span class="discount"></span>
+                    <span class="price-old"></span>
+                    <span></span>
                 </div>
-            </div>
-            <div>
-                <img src="images/g2.PNG" alt="Isonzo">
-                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
-                <p>Isonzo</p>
-                <div>
-                    <span class="discount">-10%</span>
-                    <span class="price-old">649</span>
-                    <span>584,10 ₽</span>
-                </div>
-            </div>
-            <div>
-                <img src="images/g3.PNG" alt="A Tale of Paper: Refolded">
-                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
-                <p>A Tale of Paper: Refolded</p>
-                <div>
-                    <span class="discount">-10%</span>
-                    <span class="price-old">449</span>
-                    <span>404,10 ₽</span>
-                </div>
-            </div>
-            <div>
-                <img src="images/g4.PNG" alt="Fuga: Melodies of Steel">
-                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
-                <p>Fuga: Melodies of Steel</p>
-                <div>
-                    <span class="discount">-30%</span>
-                    <span class="price-old">2 439</span>
-                    <span>1 707,30 ₽</span>
-                </div>
-            </div>
-            <div>
-                <img src="images/g5.PNG" alt="Restles Soul">
-                <p style="color:#B8B8B8; font-size: 12px; font-weight: 700;">БАЗОВАЯ ИГРА</p>
-                <p>Restles Soul</p>
-                <div>
-                    <span class="discount">-10%</span>
-                    <span class="price-old">349</span>
-                    <span>314,10 ₽</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div>
-            <br>
-            <br>
-            <i class="fa fa-brands fa-vk" style="color:#B8B8B8; font-size: 32px; padding-left: 70px;"></i>
-            <i class="fa fa-brands fa-telegram" style="color:#B8B8B8; font-size: 32px;"></i>
-            <i class="fa fa-brands fa-twitter" style="color:#B8B8B8; font-size: 32px; padding-bottom: 20px;"></i>
-            <div class="f-left" style="padding-bottom: 0; color: #494949; font-weight: 700;">Ресурсы</div>
-            <div class="f-menu" class="f-left">
-                <div class="f-left">
-                    <div class="f-button">Поддержка авторов</div>
-                    <div class="f-button">Опубликовать на Epic Games</div>
-                    <div class="f-button">Вакансии</div>
-                    <div class="f-button">Компания</div>
-                </div>
-                <div class="f-left">
-                    <div class="f-button">Правила для неофициальных материалов</div>
-                    <div class="f-button">Исследование пользовательского опыта</div>
-                    <div class="f-button">Лицензионное соглашение с конечным пользователем магазина</div>
-                </div>
-                <div class="f-left">
-                    <div class="f-button">Сетевые службы</div>
-                    <div class="f-button">Правила сообщества</div>
-                    <div class="f-button">Epic Newsroom</div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div>
-            <div class="f-left"  style="padding-bottom: 0; color: #494949; font-weight: 700;">Создатель: Epic Games</div>
-            <div class="f-menu">
-                <div class="f-left">
-                    <div class="f-button">Battle breakers</div>
-                    <div class="f-button">Fornite</div>
-                    <div class="f-button">Infinity blade</div>
-                </div>
-                <div class="f-left">
-                    <div class="f-button">Robo Recall</div>
-                    <div class="f-button">Shadow Complex</div>
-                    <div class="f-button">Unreal Tournament</div>
-                </div>
-            </div>
-        </div>
-        <hr color="#494949" size="0.1" width="93%">
-        <p class="f-paragraph">© 2022, Epic Games, Inc. Все права сохранены. Epic, Epic Games, логотип Epic Games, Fortnite, логотип Fortnite, Unreal, Unreal Engine, логотип Unreal Engine, Unreal Tournament и логотип Unreal Tournament являются товарными знаками или зарегистрированными товарными знаками Epic Games, Inc. в США и во всём остальном мире. Все прочие марки и наименования продукции являются товарными знаками соответствующих владельцев. Финансовые операции за пределами США проводятся через Epic Games International, S.à r.l.   </p>
-        <div style="display: flex; justify-content: space-between;">
-            <div class="f-left" style="display: flex;">
-                <div class="f-button">Условия предоставления услуг</div>
-                <div class="f-button" style="padding-left: 10px;">Политика конфиденциальности</div>
-                <div class="f-button" style="padding-left: 10px;">Правила возврата магазина</div>
-            </div>
-            <div style="margin-right: 60px;">
-                <div><img src="images/icons.PNG" alt="icons"></div>
+                <i class="fa-solid fa-trash cursor-active animated-hover"></i>
             </div>
         </div>
 
+        <form id="create-form" method="post">
+            <div class="title">Добавить новую игру</div>
+            <div class="form-item">
+                <label for="name">Название: </label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-item">
+                <label for="type">Тип игры: </label>
+                <input type="text" name="type" id="type" value="БАЗОВАЯ ИГРА" required>
+            </div>
+            <div class="form-item">
+                <label for="price">Цена: </label>
+                <input type="number" name="price" id="price" value=0 required>
+            </div>
+            <div class="form-item">
+                <label for="discount">Скидка: </label>
+                <input type="number" name="discount" id="discount" value=0 required>
+            </div>
+            <div class="form-item">
+                <label for="banner">Баннер: </label>
+                <input type="text" name="banner" id="banner" required>
+            </div>
+            <div class="form-item">
+                <label for="thumbnail">Иконка: </label>
+                <input type="text" name="thumbnail" id="thumbnail" required>
+            </div>
+            <div class="form-item">
+                <label for="description">Описание: </label>
+                <textarea name="description" id="description"></textarea>
+            </div>
+            <div>
+                <button class="add-button" type="submit">Добавить</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <div class="footer">
+            <div>
+                <br>
+                <br>
+                <i class="fa fa-brands fa-vk cursor-active animated-hover"></i>
+                <i class="fa fa-brands fa-telegram cursor-active animated-hover"></i>
+                <i class="fa fa-brands fa-twitter cursor-active animated-hover"></i>
+                <div class="f-left resources">Ресурсы</div>
+                <div class="f-menu">
+                    <div class="f-left">
+                        <div class="f-button cursor-active animated-hover">Поддержка авторов</div>
+                        <div class="f-button cursor-active animated-hover">Опубликовать на Epic Games</div>
+                        <div class="f-button cursor-active animated-hover">Вакансии</div>
+                        <div class="f-button cursor-active animated-hover">Компания</div>
+                    </div>
+                    <div class="f-left">
+                        <div class="f-button cursor-active animated-hover">Правила для неофициальных материалов</div>
+                        <div class="f-button cursor-active animated-hover">Исследование пользовательского опыта</div>
+                        <div class="f-button cursor-active animated-hover">Лицензионное соглашение с конечным пользователем магазина</div>
+                    </div>
+                    <div class="f-left">
+                        <div class="f-button cursor-active animated-hover">Сетевые службы</div>
+                        <div class="f-button cursor-active animated-hover">Правила сообщества</div>
+                        <div class="f-button cursor-active animated-hover">Epic Newsroom</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div class="f-left resources">Создатель: Epic Games</div>
+                <div class="f-menu">
+                    <div class="f-left">
+                        <div class="f-button cursor-active animated-hover">Battle breakers</div>
+                        <div class="f-button cursor-active animated-hover">Fornite</div>
+                        <div class="f-button cursor-active animated-hover">Infinity blade</div>
+                    </div>
+                    <div class="f-left">
+                        <div class="f-button animated-hover">Robo Recall</div>
+                        <div class="f-button animated-hover">Shadow Complex</div>
+                        <div class="f-button animated-hover">Unreal Tournament</div>
+                    </div>
+                </div>
+            </div>
+            <hr color="#494949" size="0.1" width="93%">
+            <p class="f-paragraph">© 2022, Epic Games, Inc. Все права сохранены. Epic, Epic Games, логотип Epic Games, Fortnite, логотип Fortnite, Unreal, Unreal Engine, логотип Unreal Engine, Unreal Tournament и логотип Unreal Tournament являются товарными знаками или зарегистрированными товарными знаками Epic Games, Inc. в США и во всём остальном мире. Все прочие марки и наименования продукции являются товарными знаками соответствующих владельцев. Финансовые операции за пределами США проводятся через Epic Games International, S.à r.l.   </p>
+            <div class="rules">
+                <div class="f-left">
+                    <div class="f-button cursor-active animated-hover">Условия предоставления услуг</div>
+                    <div class="f-button policy cursor-active animated-hover">Политика конфиденциальности</div>
+                    <div class="f-button policy cursor-active animated-hover">Правила возврата магазина</div>
+                </div>
+                <div class="footer-icons cursor-active">
+                    <div><img src="images/icons.PNG" alt="icons"></div>
+                </div>
+            </div>
+        </div>
     </footer>
     <script>
+        const carousel = document.getElementsByClassName('carousel')[0];
+        carousel.children[0].src = games[0].bannerUri;
+        carousel.children[0].alt = games[0].name;
+        carousel.children[1].innerText = games[0].description;
+        if (games[0].price == 0) {
+            carousel.children[2].innerText = 'ИГРАТЬ';
+        } else {
+            carousel.children[2].innerText = 'КУПИТЬ СЕЙЧАС';
+        }
+
+        const carouselThumbnail = document.getElementsByClassName('carousel-thumbnail')[0];
+        const carouselThumbnailItemTemplate = carouselThumbnail.innerHTML;
+        carouselThumbnail.children[0].remove();
+        for (let i = 0; i < 5; i++) {
+            const game = games[i];
+            carouselThumbnail.innerHTML += carouselThumbnailItemTemplate;
+            const carouselThumbnailItem = carouselThumbnail.children[i];
+            carouselThumbnailItem.hidden = false;
+            carouselThumbnailItem.setAttribute('data-game-id', game.id);
+            carouselThumbnailItem.children[0].src = game.thumbnailUri;
+            carouselThumbnailItem.children[0].alt = game.name;
+            carouselThumbnailItem.children[1].innerText = game.name;
+        }
+
+        games = JSON.parse(localStorage.getItem("games")) || games;
+
         const carouselThumbnailItems = document.getElementsByClassName('carousel-thumbnail-item');
         for (let item of carouselThumbnailItems) {
             item.onclick = e => {
-                gameId = e.currentTarget.getAttribute('data-game-id');
-                document.getElementById('main-game').src = `images/b${gameId}.PNG`;
+                gameId = +e.currentTarget.getAttribute('data-game-id');
+                const game = games.find(g => g.id === gameId);
+                document.getElementById('main-game').src = game.bannerUri;
+                document.getElementById('game-description').innerText = game.description;
+                if (game.price == 0) {
+                    document.getElementById('game-action').innerText = 'ИГРАТЬ';
+                } else {
+                    document.getElementById('game-action').innerText = 'КУПИТЬ СЕЙЧАС';
+                }
             }
+        }
+
+        const gamesOnSale = document.getElementsByClassName('games-sale')[0];
+        const gamesOnSaleItemTemplate = gamesOnSale.innerHTML;
+        for (let i = 0; i < games.length; i++) {
+            const game = games[i];
+            gamesOnSale.innerHTML += gamesOnSaleItemTemplate;
+            const gamesOnSaleItem = gamesOnSale.children[i + 1];
+            gamesOnSaleItem.hidden = false;
+            gamesOnSaleItem.setAttribute('data-game-id', game.id);
+            gamesOnSaleItem.children[0].src = game.thumbnailUri;
+            gamesOnSaleItem.children[0].alt = game.name;
+            gamesOnSaleItem.children[1].innerText = game.type || "БАЗОВАЯ ИГРА";
+            gamesOnSaleItem.children[2].innerText = game.name;
+            if (game.price === 0) {
+                gamesOnSaleItem.children[3].innerText = 'Бесплатно';
+            } else {
+                gamesOnSaleItem.children[3].children[0].innerText = `-${game.discount}%`;
+                gamesOnSaleItem.children[3].children[1].innerText = `-${game.price}`;
+                gamesOnSaleItem.children[3].children[2].innerText = `${game.price * (100 - game.discount) / 100} ₽`;
+            }
+        }
+        gamesOnSale.onclick = e => {
+            if (e.srcElement.classList.contains('fa-trash')) {
+                if (confirm('Вы уверены, что хотите удалить эту игру?')) {
+                    const gamesOnSaleItem = e.srcElement.parentElement;
+                    const gameId = gamesOnSaleItem.getAttribute('data-game-id');
+                    games = games.filter(g => g.id != gameId);
+                    localStorage.setItem("games", JSON.stringify(games));
+                    gamesOnSaleItem.remove();
+                }
+            }
+        }
+
+        const searchResult = document.getElementById('search-result');
+        searchResultItemHtml = searchResult.innerHTML;
+        
+        const searchHistoryHtml = document.getElementById("search-history-dropdown");
+        const searchInput = document.querySelector('.search input');
+        searchInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+                search(e.target.value);
+                searchHistoryHtml.hidden = true;
+            }
+        });
+        document.querySelector('.search i').onclick = e => {
+            search(searchInput.value);
+            searchHistoryHtml.hidden = true;
+        }
+        searchInput.addEventListener('focus', e => {
+            searchHistoryHtml.innerHTML = '';
+            searchHistoryHtml.hidden = false;
+            let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+            for (let i = 0; i < searchHistory.length; i++) {
+                searchHistoryHtml.innerHTML += `<div data-option-index=${i} class='search-option'><div>${searchHistory[i]}</div><i class="fa fa-solid fa-xmark"></i></div>`;
+                if (i === 9) {
+                    break;
+                }
+            }
+        });
+        document.addEventListener('click', e => {
+            if (e.srcElement !== searchInput && !e.target.classList.contains('fa')) {
+                searchHistoryHtml.hidden = true;
+            }
+        })
+        
+        searchHistoryHtml.onclick = e => {
+            const query = e.srcElement.innerText;
+            if (!e.target.classList.contains('fa') && query.length > 0) {
+                searchInput.value = query;
+                searchHistoryHtml.hidden = true;
+                search(query);
+            } else {
+                optionIndex = e.srcElement.parentElement.getAttribute('data-option-index');
+                let searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+                searchHistory.splice(optionIndex, 1);
+                localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+                for (const option of e.srcElement.parentElement.parentElement.children) {
+                    const otherOptionIndex = option.getAttribute('data-option-index');
+                    if (otherOptionIndex <= optionIndex) {
+                        continue;
+                    }
+                    option.setAttribute('data-option-index', otherOptionIndex - 1);
+                }
+                e.srcElement.parentElement.remove();
+            }
+        }
+
+        function search(query) {
+            if (query === '') {
+                document.getElementById('search-title').hidden = true;
+                searchResult.innerHTML = "";
+                return;
+            }
+            let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+            searchHistory = searchHistory.filter(item => item !== query);
+            searchHistory.unshift(query);
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            const foundGames = games.filter(g => g.name.toLowerCase().includes(query.toLowerCase()));
+            document.getElementById('search-title').hidden = false;
+            if (foundGames.length === 0) {
+                searchResult.innerText = "Нет результатов";
+                return;
+            }
+            searchResult.innerHTML = searchResultItemHtml;
+            for (let i = 0; i < foundGames.length; i++) {
+                const game = foundGames[i];
+                searchResult.innerHTML += searchResultItemHtml;
+                searchResultItem = searchResult.children[i + 1];
+                searchResultItem.hidden = false;
+                searchResultItem.children[0].src = game.thumbnailUri;
+                searchResultItem.children[0].alt = game.name;
+                searchResultItem.children[1].innerText = game.type || "БАЗОВАЯ ИГРА";
+                searchResultItem.children[2].innerText = game.name;
+                if (game.price === 0) {
+                    searchResultItem.children[3].innerText = 'Бесплатно';
+                } else {
+                    searchResultItem.children[3].children[0].innerText = `-${game.discount}%`;
+                    searchResultItem.children[3].children[1].innerText = game.price;
+                    searchResultItem.children[3].children[2].innerText = `${game.price * (100 - game.discount) / 100} ₽`;
+                }
+            }
+        }
+        
+        const createForm = document.getElementById('create-form');
+        const btnEdit = document.getElementById('btn-edit');
+        btnEdit.onclick = e => {
+            createForm.style.display = createForm.style.display == 'flex' ? 'none' : 'flex';
+            document.querySelectorAll('.games-sale .fa-trash').forEach(btnDelete => {
+                btnDelete.style.display = btnDelete.style.display == 'block' ? 'none' : 'block';
+            })
+        }
+
+        createForm.onsubmit = e => {
+            const id = games[games.length - 1].id + 1;
+            const name = document.getElementById('name').value;
+            const type = document.getElementById('type').value;
+            const price = document.getElementById('price').value;
+            const discount = document.getElementById('discount').value;
+            const bannerUri = document.getElementById('banner').value;
+            const thumbnailUri = document.getElementById('thumbnail').value;
+            const description = document.getElementById('description').value;
+            const game = {
+                id, name, bannerUri, thumbnailUri, type, price, discount, description
+            }
+            games.push(game);
+            localStorage.setItem("games", JSON.stringify(games));
         }
     </script>
 </body>

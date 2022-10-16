@@ -1,0 +1,14 @@
+<div class="flex-space-between">
+    <div class="title">Игры со скидками</div>
+    <i 
+        id="btn-edit" 
+        class="fa fa-solid fa-pen-to-square cursor-active animated-hover"
+        (click)="toggleEditMode()"
+    ></i>
+</div>
+<app-games-list
+    [games]="gamesOnSale"
+    class="games-sale"
+    [events]="eventsSubject.asObservable()"
+    [withDeleteBtns]="withDeleteBtns"
+></app-games-list>

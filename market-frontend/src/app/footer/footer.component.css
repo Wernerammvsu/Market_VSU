@@ -1,0 +1,70 @@
+.footer {
+    color: #FFF;
+    background-color: #202020;
+    border-top: none;
+    font-size: 16px;
+    font-family: 'OpenSans',sans-serif;
+    
+}
+.f-button:hover {
+    color: #0078F2;
+}
+.f-left {
+    padding: 0.7em 4.5em;
+    position: relative;
+    z-index: 10;
+    margin: 0px;
+}
+.f-menu {
+    display: flex;
+}
+.f-paragraph {
+    color: #B8B8B8;
+    font-family: 'OpenSans',sans-serif;
+    font-size: .71em;
+    font-weight: 400;
+    line-height: 2em;
+    margin: 0;
+    padding-top: 0.5em;
+    text-size-adjust: 100%;
+    padding: 1.25em 70px;
+    position: relative;
+    z-index: 10;
+    width: 800px;
+}
+
+.resources {
+    padding-bottom: 0; 
+    color: #494949; 
+    font-weight: 700;
+}
+.rules {
+    display: flex; 
+    justify-content: space-between;
+}
+.rules > div {
+    display: flex;
+}
+.policy {
+    padding-left: 10px;
+}
+.footer-icons {
+    margin-right: 60px;
+}
+
+.social i {
+    font-size: 30px;
+    margin: 0 5px;
+}
+
+.fa-brands:hover{
+    color: #0078F2;
+}
+
+.fa-vk {
+    padding-left: 70px;
+}
+
+.fa-twitter {
+    padding-bottom: 20px;
+}
