@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private gamesService: GamesService) { }
 
   ngOnInit(): void {
-    localStorage.setItem('games', JSON.stringify(this.gamesService.games));
+    // await this.gamesService.getGames();
+    localStorage.setItem('cart', JSON.stringify(this.gamesService.cart));
   }
 }

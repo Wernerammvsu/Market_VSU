@@ -253,7 +253,7 @@
             padding-left: 20px;
         }
 
-        .discount {
+        .discountPercent {
             background-color: #0078F2;
             padding: 2px 5px;
             border-radius: 3px;
@@ -464,7 +464,7 @@
                 <p class="game-type"></p>
                 <p class="cursor-active"></p>
                 <div>
-                    <span class="discount"></span>
+                    <span class="discountPercent"></span>
                     <span class="price-old"></span>
                     <span></span>
                 </div>
@@ -481,7 +481,7 @@
                 <p class="game-type"></p>
                 <p class="cursor-active"></p>
                 <div>
-                    <span class="discount"></span>
+                    <span class="discountPercent"></span>
                     <span class="price-old"></span>
                     <span></span>
                 </div>
@@ -504,8 +504,8 @@
                 <input type="number" name="price" id="price" value=0 required>
             </div>
             <div class="form-item">
-                <label for="discount">Скидка: </label>
-                <input type="number" name="discount" id="discount" value=0 required>
+                <label for="discountPercent">Скидка: </label>
+                <input type="number" name="discountPercent" id="discountPercent" value=0 required>
             </div>
             <div class="form-item">
                 <label for="banner">Баннер: </label>
@@ -639,9 +639,9 @@
             if (game.price === 0) {
                 gamesOnSaleItem.children[3].innerText = 'Бесплатно';
             } else {
-                gamesOnSaleItem.children[3].children[0].innerText = `-${game.discount}%`;
+                gamesOnSaleItem.children[3].children[0].innerText = `-${game.discountPercent}%`;
                 gamesOnSaleItem.children[3].children[1].innerText = `-${game.price}`;
-                gamesOnSaleItem.children[3].children[2].innerText = `${game.price * (100 - game.discount) / 100} ₽`;
+                gamesOnSaleItem.children[3].children[2].innerText = `${game.price * (100 - game.discountPercent) / 100} ₽`;
             }
         }
         gamesOnSale.onclick = e => {
@@ -739,9 +739,9 @@
                 if (game.price === 0) {
                     searchResultItem.children[3].innerText = 'Бесплатно';
                 } else {
-                    searchResultItem.children[3].children[0].innerText = `-${game.discount}%`;
+                    searchResultItem.children[3].children[0].innerText = `-${game.discountPercent}%`;
                     searchResultItem.children[3].children[1].innerText = game.price;
-                    searchResultItem.children[3].children[2].innerText = `${game.price * (100 - game.discount) / 100} ₽`;
+                    searchResultItem.children[3].children[2].innerText = `${game.price * (100 - game.discountPercent) / 100} ₽`;
                 }
             }
         }
@@ -760,12 +760,12 @@
             const name = document.getElementById('name').value;
             const type = document.getElementById('type').value;
             const price = document.getElementById('price').value;
-            const discount = document.getElementById('discount').value;
+            const discountPercent = document.getElementById('discountPercent').value;
             const bannerUri = document.getElementById('banner').value;
             const thumbnailUri = document.getElementById('thumbnail').value;
             const description = document.getElementById('description').value;
             const game = {
-                id, name, bannerUri, thumbnailUri, type, price, discount, description
+                id, name, bannerUri, thumbnailUri, type, price, discountPercent, description
             }
             games.push(game);
             localStorage.setItem("games", JSON.stringify(games));

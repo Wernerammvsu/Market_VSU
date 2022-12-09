@@ -1,0 +1,81 @@
+img {
+  border-radius: 10px;
+}
+
+.fa-trash {
+  position: absolute;
+  top: 5%;
+  left: 105%;
+  color: #494949;
+  font-size: 20px;
+  display: block;
+}
+
+.fa-trash:hover {
+  color: #ffffff;
+}
+
+.game-type {
+  color: #B8B8B8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.discountPercent {
+  background-color: #0078F2;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.price-old {
+  text-decoration: line-through;
+  margin: 0 7px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.game-thumbnail {
+  position: relative;
+}
+
+.game-thumbnail > .btn-add-to-cart {
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  font-size: 20px;
+}
+
+.game-thumbnail > .btn-add-to-cart > div {
+  position: relative;
+}
+
+.popover-cart {
+  position: absolute;
+  bottom: 210%;
+  right: -500%;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  padding: 5px 15px;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 30%) 0px 5px 10px;
+  background: rgb(32, 32, 32);
+  text-align: center;
+  width: max-content;
+  display: none;
+}
+
+.game-thumbnail > .btn-add-to-cart > div:hover .popover-cart {
+  display: block;
+}
+
+.game-thumbnail i.fa-circle-plus {
+  display: none;
+}
+
+.game-thumbnail:hover i.fa-circle-plus {
+  display: inline-block;
+}

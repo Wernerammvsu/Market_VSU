@@ -238,7 +238,7 @@ namespace Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DiscountPercent")
+                    b.Property<int>("discountPercent")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

@@ -1,0 +1,8 @@
+::ng-deep .search-result .games-list {
+  grid-template-columns: repeat(5, 205.33px);
+}
+
+.not-found {
+  margin-left: 40px;
+  color: #B8B8B8;
+}

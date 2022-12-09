@@ -1,0 +1,186 @@
+.game-details-container {
+  margin-left: 30px;
+}
+
+.game-details-container > div:first-child {
+  font-size: 50px;
+  line-height: 55px;
+  letter-spacing: -1px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+div {
+  color: #f5f5f5;
+}
+
+.game-info-brief {
+  margin-bottom: 50px;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.game-info-brief .rating-title {
+  margin-right: 5px;
+}
+
+.game-info-brief .rating-number {
+  margin-right: 12px;
+  padding: 2px 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(245, 245, 245, 0.6);
+  font-weight: 700;
+}
+
+.game-info {
+  display: flex;
+}
+
+.main {
+  width: 953px;
+}
+
+.main div {
+  margin-bottom: 20px;
+}
+
+.game-info .details {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 64px;
+  width: 320px;
+}
+
+.game-info .details img {
+  align-self: center;
+}
+
+div:has(> .genres) {
+  display: flex;
+}
+
+div:has(> .genres) p {
+  margin: 0;
+}
+
+.genres, .features {
+  width: 50%;
+  padding: 0 20px;
+  border-left: 1px solid #ffffff1a;
+}
+
+:is(.genres, .features) > p:first-child {
+  color: #f5f5f599;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+:is(.genres, .features) a {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+:is(.genres, .features) a:hover {
+  text-decoration: none;
+}
+
+.game-type {
+  align-items: center;
+  background-color: #ffffff1a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 15px;
+  font-weight: 500;
+}
+
+.price {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin-bottom: 5px;
+}
+
+.discountPercent {
+  background-color: #0078F2;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.price-old {
+  text-decoration: line-through;
+  margin: 0 7px;
+}
+
+a.purchase-content {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  transition: color 125ms ease-in-out 0s;
+  color: #f5f5f599;
+  text-decoration: underline;
+}
+a.purchase-content:hover {
+  color: #f5f5f5;
+}
+
+.btn {
+  margin-top: 10px;
+  border: 1px solid rgba(245, 245, 245, 0.6);
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 200ms ease 0s;
+  width: 100%;
+  height: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.btn-get {
+  background-color: rgb(245, 245, 245);
+  color: rgb(0, 0, 0);
+}
+.btn-get:hover {
+  background-color: rgba(255, 255, 255, 0.84);
+}
+
+.btn-wishlist {
+  height: 32px;
+}
+.btn > i {
+  margin-right: 6px;
+}
+
+.metadata {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+.metadata > div:first-child {
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.btn-share, .btn-report {
+  height: 34px;
+}
+
+.long-description {
+  white-space: pre-line;
+}

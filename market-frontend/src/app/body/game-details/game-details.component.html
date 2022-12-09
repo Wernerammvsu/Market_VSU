@@ -1,0 +1,68 @@
+<div class="game-details-container">
+  <div>{{ game.name }}</div>
+  <div class="game-info-brief">
+    <span class="rating-title">Рейтинг:</span>
+    <span class="rating-number">{{ game.rating }}</span>
+  </div>
+  <div class="game-info">
+    <div class="main">
+      <div class="pics">
+        <img [src]="game.bannerUri" [alt]="game.name" width="953px">
+      </div>
+      <div>{{ game.description }}</div>
+      <div>
+        <div class="genres">
+          <p>Жанры</p>
+          <ng-container *ngFor="let genre of game.genres; index as i">
+            <a [routerLink]="['/genre']" [queryParams]="{value: genre}">{{ genre }}</a>
+            <span *ngIf="i < game.genres.length - 1">, </span>
+          </ng-container>
+        </div>
+        <div class="features">
+          <p>Особенности</p>
+          <ng-container *ngFor="let feature of game.features; index as i">
+            <a [routerLink]="['/feature']" [queryParams]="{value: feature}">{{ feature }}</a>
+            <span *ngIf="i < game.features.length - 1">, </span>
+          </ng-container>
+        </div>
+      </div>
+      <div>{{ game.name }}</div>
+      <div class="long-description">{{ game.longDescription }}</div>
+    </div>
+    <div class="details">
+      <img [src]="game.thumbnailUri" [alt]="game.name" width="157px">
+      <p class="game-type">{{ game.type || 'БАЗОВАЯ ИГРА' }}</p>
+      <div class="price">
+        <div *ngIf="game.price > 0 && game.discountPercent < 100">
+          <span class="discountPercent">-{{ game.discountPercent }}%</span>
+          <span class="price-old">{{ game.price }}</span>
+          <span>{{ game.price * (100 - game.discountPercent) / 100 }} ₽</span>
+        </div>
+        <div *ngIf="game.price == 0 || game.discountPercent >= 100">Бесплатно</div>
+      </div>
+      <a href="#" class="purchase-content">Содержимое покупки в приложении</a>
+      <button class="btn btn-get">ПОЛУЧИТЬ</button>
+      <button *ngIf="!addedToCart" class="btn btn-cart" (click)="addToCart(game.id)">ДОБАВИТЬ В КОРЗИНУ</button>
+      <button *ngIf="addedToCart" class="btn btn-cart" (click)="removeFromCart(game.id)">УБРАТЬ ИЗ КОРЗИНЫ</button>
+      <button class="btn btn-wishlist"><i class="fa-solid fa-circle-plus"></i>В СПИСОК ЖЕЛАЕМОГО</button>
+      <div class="metadata">
+        <div>Разработчик</div>
+        <div>{{ game.developer }}</div>
+      </div>
+      <div class="metadata">
+        <div>Издатель</div>
+        <div>{{ game.publisher }}</div>
+      </div>
+      <div class="metadata">
+        <div>Дата выхода</div>
+        <div>{{ game.releaseDate }}</div>
+      </div>
+      <div class="metadata">
+        <div>Платформа</div>
+        <div><i class="fa-brands fa-windows"></i></div>
+      </div>
+      <button class="btn btn-share"><i class="fa-solid fa-share-nodes"></i>ПОДЕЛИТЬСЯ</button>
+      <button class="btn btn-report"><i class="fa-solid fa-flag"></i>ПОЖАЛОВАТЬСЯ</button>
+    </div>
+  </div>
+</div>

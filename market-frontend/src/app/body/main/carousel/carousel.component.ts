@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/_services/games.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { GamesService } from 'src/app/_services/games.service';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent implements OnInit, AfterViewInit {
+export class CarouselComponent implements OnInit {
   topGames: any[] = [];
   selectedGame: any = {};
 
@@ -15,9 +15,6 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   async ngOnInit(): Promise<void> {
     this.topGames = await this.gamesService.getTopGames();
     this.selectedGame = this.topGames[0];
-  }
-
-  ngAfterViewInit(): void {
   }
 
 }

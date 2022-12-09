@@ -1,0 +1,19 @@
+<div class="main-games">
+  <a [routerLink]="['/games', selectedGame.id]">
+    <div class="carousel">
+      <img id="main-game" [src]="selectedGame.bannerUri" [alt]="selectedGame.name" width="1139.25px">
+      <div id="game-description">{{ selectedGame.description }}</div>
+      <button id="game-action" class="cursor-active">{{ selectedGame.price > 0 ? 'КУПИТЬ СЕЙЧАС' : 'ИГРАТЬ' }}</button>
+      <div id="rectangle" class="gradient"></div>
+    </div>
+  </a>
+  
+  <div class="carousel-thumbnail cursor-active animated-hover">
+    <ng-container *ngFor="let game of topGames">
+      <div class="carousel-thumbnail-item" [attr.data-game-id]="game.id" (click)="selectedGame = game">
+        <img [src]="game.thumbnailUri" [alt]="game.name">
+        <div>{{ game.name }}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

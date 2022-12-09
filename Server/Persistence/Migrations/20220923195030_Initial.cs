@@ -56,8 +56,8 @@ namespace Server.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    DiscountPercent = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    discountPercent = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BannerUri = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ThumbnailUri = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

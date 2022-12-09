@@ -1,0 +1,8 @@
+<div class="title">Результаты поиска</div>
+
+<app-games-list
+    [games]="foundGames"
+    class="search-result"
+></app-games-list>
+
+<div class="not-found" *ngIf="foundGames.length === 0">Ничего не найдено</div>

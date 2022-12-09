@@ -1,0 +1,32 @@
+<div class="game-thumbnail">
+  <a [routerLink]="['/games', game.id]">
+    <img class="cursor-active" [src]="game.thumbnailUri" [alt]="game.name" height="274px">
+  </a>
+  <div class="btn-add-to-cart">
+    <div>
+      <ng-container *ngIf="!addedToCart">
+        <i class="fa-solid fa-circle-plus cursor-active" (click)="addToCart(game.id)"></i>
+        <div class="popover-cart">Добавить в корзину</div>
+      </ng-container>
+      <ng-container *ngIf="addedToCart">
+        <i class="fa-solid fa-check cursor-active" (click)="removeFromCart(game.id)"></i>
+        <div class="popover-cart">Убрать из корзины</div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<p class="game-type">{{ game.type || 'БАЗОВАЯ ИГРА' }}</p>
+<p class="cursor-active">
+  <a [routerLink]="['/games', game.id]">{{ game.name }}</a>
+</p>
+<div *ngIf="game.price > 0 && game.discountPercent < 100">
+    <span class="discountPercent">-{{ game.discountPercent }}%</span>
+    <span class="price-old">{{ game.price }}</span>
+    <span>{{ game.price * (100 - game.discountPercent) / 100 }} ₽</span>
+</div>
+<div *ngIf="game.price == 0 || game.discountPercent >= 100">БЕСПЛАТНО</div>
+<i 
+  *ngIf="withDeleteBtn" 
+  class="fa fa-solid fa-trash cursor-active animated-hover"
+  (click)="removeGame()"
+></i>

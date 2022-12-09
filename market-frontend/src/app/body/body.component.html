@@ -2,7 +2,7 @@
   <div class="content-head">
       <div class="ch-l">
           <div class="search">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-magnifying-glass cursor-active"></i>
               <input 
                 type="search" 
                 placeholder="Искать в магазине" 
@@ -21,62 +21,19 @@
                 </div>
               </div>
           </div>
-          <div class="h-menu animated-hover">Главное</div>
-          <div class="h-menu animated-hover">Все игры</div>
-          <div class="h-menu animated-hover">Новости</div>
+          <div class="h-menu cursor-active">
+            <a class="animated-hover" routerLink="/">Главное</a>
+          </div>
+          <div class="h-menu animated-hover cursor-active">Все игры</div>
+          <div class="h-menu animated-hover cursor-active">Новости</div>
       </div>
       <div class="ch-r cursor-active">
           <div class="h-menu animated-hover">Список желаемого</div>
-          <div class="h-menu animated-hover">Корзина</div>
+          <a routerLink="/cart" class="h-menu animated-hover">Корзина</a>
+          <ng-container *ngIf="cartCount$ | async; let cartCount">
+            <div *ngIf="cartCount > 0" class="badge">{{ cartCount }}</div>
+          </ng-container>
       </div>
   </div>
-  <app-carousel></app-carousel>
-  <ng-container *ngIf="showSearchResult">
-    <div class="title">Результаты поиска</div>
-    <app-games-list 
-        [games]="foundGames"
-        class="search-result"
-    ></app-games-list>
-    <div *ngIf="foundGames.length === 0">ПРИВЕТ ЗДРАВСТВУЙТЕ КАК ДЕЛА</div>
-  </ng-container>
-  <ng-container *ngIf="reloadFlag">
-    <app-sale 
-      (toggleCreationForm)="toggleCreationForm($event)"
-      [withDeleteBtns]="withDeleteBtns"
-    ></app-sale>
-  </ng-container>
-  <form #newGameForm="ngForm" *ngIf="showCreationForm" id="create-form" method="post">
-    <div class="title">Добавить новую игру</div>
-    <div class="form-item">
-        <label for="name">Название: </label>
-        <input type="text" name="name" id="name" required [(ngModel)]="newGame.name">
-    </div>
-    <div class="form-item">
-        <label for="type">Тип игры: </label>
-        <input type="text" name="type" id="type" required [(ngModel)]="newGame.type">
-    </div>
-    <div class="form-item">
-        <label for="price">Цена: </label>
-        <input type="number" name="price" id="price" required [(ngModel)]="newGame.price">
-    </div>
-    <div class="form-item">
-        <label for="discount">Скидка: </label>
-        <input type="number" name="discount" id="discount" required [(ngModel)]="newGame.discount">
-    </div>
-    <div class="form-item">
-        <label for="banner">Баннер: </label>
-        <input type="text" name="banner" id="banner" required [(ngModel)]="newGame.bannerUri">
-    </div>
-    <div class="form-item">
-        <label for="thumbnail">Иконка: </label>
-        <input type="text" name="thumbnail" id="thumbnail" required [(ngModel)]="newGame.thumbnailUri">
-    </div>
-    <div class="form-item">
-        <label for="description">Описание: </label>
-        <textarea name="description" id="description" [(ngModel)]="newGame.description"></textarea>
-    </div>
-    <div>
-        <button class="add-button" type="submit" (click)="addNewGame()">Добавить</button>
-    </div>
-  </form>
+  <router-outlet></router-outlet>
 </div>

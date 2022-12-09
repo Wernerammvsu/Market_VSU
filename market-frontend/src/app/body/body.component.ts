@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DataService } from '../_services/data.service';
 import { GamesService } from '../_services/games.service';
 
 @Component({
@@ -6,29 +9,26 @@ import { GamesService } from '../_services/games.service';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent implements OnInit {
+export class BodyComponent implements OnInit, AfterViewInit {
   searchInput = document.querySelector('.search input')!;
   searchHistoryHtml = document.getElementById("search-history-dropdown")!;
   searchQuery = '';
   searchHistory: string[] = [];
   showSearchHistory = false;
-  foundGames: any[] = [];
-  showSearchResult = false;
+  cartCount$?: Observable<number>;
 
-  showCreationForm = false;
-  newGame: any = {
-    type: 'БАЗОВАЯ ИГРА',
-    price: 0,
-    discount: 0
-  };
-
-  reloadFlag = true;
-  withDeleteBtns = false;
-
-  constructor(private gamesService: GamesService) { }
+  constructor(private gamesService: GamesService, 
+    private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.searchHistory = this.getSearchHistory();
+    this.cartCount$ = this.gamesService.cartCount;
+  }
+  
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.gamesService.updateCartCount();
+    });
   }
 
   onFocus(event: any) {
@@ -78,25 +78,17 @@ export class BodyComponent implements OnInit {
   }
 
   searchGames() {
-    this.showSearchHistory = false;
-    this.foundGames = this.gamesService.searchGames(this.searchQuery);
-    this.showSearchResult = true;
+    this.router.navigateByUrl('/');
+    setTimeout(async () => {
+      this.showSearchHistory = false;
+      this.dataService.foundGames = await this.gamesService.searchGames(this.searchQuery);
+      this.dataService.showSearchResultSubject.next(true);
+    });
   }
 
   resetState() {
-    this.showSearchResult = false;
-    this.foundGames = [];
+    this.dataService.showSearchResultSubject.next(false);
+    this.dataService.foundGames = [];
     this.showSearchHistory = false;
-  }
-
-  toggleCreationForm(e: any) {
-    this.showCreationForm = !this.showCreationForm;
-  }
-
-  addNewGame() {
-    this.gamesService.addNewGame(this.newGame);
-    this.withDeleteBtns = true;
-    setTimeout(() => this.reloadFlag = false); 
-    setTimeout(() => this.reloadFlag = true); 
   }
 }

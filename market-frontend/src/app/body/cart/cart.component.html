@@ -1,0 +1,32 @@
+<div class="container">
+  <div>Моя корзина</div>
+  <div class="cart">
+    <div class="cart-items">
+      <div *ngFor="let game of cart">
+        <app-cart-item [game]="game" (removeFromCartEmitter)="removeFromCart($event)"></app-cart-item>
+      </div>
+    </div>
+    <div class="purchase-info">
+      <div>Все игры и приложения</div>
+      <div class="summary">
+        <div class="meta price">
+          <div>Цена</div>
+          <div>{{ priceTotal }} ₽</div>
+        </div>
+        <div class="meta discountPercent">
+          <div>Скидка на распродаже</div>
+          <div>-{{ discountPercentTotal }} ₽</div>
+        </div>
+        <div class="meta taxes">
+          <div>Налоги</div>
+          <div>Расчёт при оформлении заказа</div>
+        </div>
+        <div class="meta price-final">
+          <div>Промежуточный итог</div>
+          <div>{{ priceFinal }} ₽</div>
+        </div>
+        <button class="btn cursor-active">ОФОРМИТЬ ЗАКАЗ</button>
+      </div>
+    </div>
+  </div>
+</div>

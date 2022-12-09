@@ -15,8 +15,8 @@ export class SaleComponent implements OnInit {
 
   constructor(private gamesService: GamesService) { }
 
-  ngOnInit(): void {
-    this.gamesOnSale = this.gamesService.getGamesOnSale();
+  async ngOnInit(): Promise<void> {
+    this.gamesOnSale = await this.gamesService.getGamesOnSale();
   }
 
   toggleEditMode() {

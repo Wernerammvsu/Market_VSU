@@ -1,0 +1,38 @@
+#create-form {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+}
+
+.form-item {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+
+.form-item > input, .form-item > textarea {
+  width: 265px;
+}
+
+#create-form > div:last-child {
+  margin: auto;
+}
+
+.add-button{
+  margin: auto;
+  background-color: #0078F2;
+  color: white;
+  padding: 20px 40px 20px 40px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#create-form > .title {
+  margin: auto;
+}
+
+#long-description-label {
+  width: 100px;
+}

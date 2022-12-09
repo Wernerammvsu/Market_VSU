@@ -66,3 +66,38 @@
     padding: 20px;
     min-height: max-content;
 }
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    width: max-content;
+    bottom: -170%;
+    left: -16%;
+    background-color: #2A2A2A;
+    box-shadow: 0px 8px 16px 0px #00000033;
+    z-index: 1;
+    padding: 3px;
+    text-align: center;
+    font-size: 10px;
+    display: none;
+}
+
+.dropdown-container:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content > div {
+    margin: 7px;
+}
+
+a {
+    color: #B8B8B8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFFFFF;
+}

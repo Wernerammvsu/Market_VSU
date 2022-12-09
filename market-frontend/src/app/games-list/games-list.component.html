@@ -1,16 +1,9 @@
-<div *ngFor="let game of games" class="game-container">
-  <img class="cursor-active" [src]="game.thumbnailUri" [alt]="game.name" height="274px">
-  <p class="game-type">{{ game.type || 'БАЗОВАЯ ИГРА' }}</p>
-  <p class="cursor-active">{{ game.name }}</p>
-  <div *ngIf="game.price > 0 && game.discount < 100">
-      <span class="discount">-{{ game.discount }}%</span>
-      <span class="price-old">{{ game.price }}</span>
-      <span>{{ game.price * (100 - game.discount) / 100 }} ₽</span>
+<div class="games-list">
+  <div *ngFor="let game of games" class="game-container">
+    <app-games-list-item
+      [game]="game"
+      [withDeleteBtn]="withDeleteBtns"
+      (removeGameEmitter)="removeGame($event)"
+    ></app-games-list-item>
   </div>
-  <div *ngIf="game.price == 0 || game.discount >= 100">БЕСПЛАТНО</div>
-  <i 
-    *ngIf="withDeleteBtns" 
-    class="fa fa-solid fa-trash cursor-active animated-hover"
-    (click)="removeGame(game)"
-  ></i>
 </div>
